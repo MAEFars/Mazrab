@@ -1,0 +1,1134 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>مضرب‌های اعداد</title>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+  }
+  body {
+    background: #87CEEB;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 8px;
+    font-family: 'Vazirmatn', Tahoma, Arial, sans-serif;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  .sky {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 35%;
+    background: linear-gradient(to bottom, #4fc3f7, #81d4fa, #b3e5fc);
+    z-index: -10;
+  }
+  .cloud {
+    position: absolute;
+    background: #fff;
+    border-radius: 50px;
+    opacity: 0.9;
+    animation: floatCloud linear infinite;
+  }
+  .cloud::before, .cloud::after {
+    content: '';
+    position: absolute;
+    background: #fff;
+    border-radius: 50%;
+  }
+  .cloud1 { width: 140px; height: 45px; top: 30px; right: -160px; animation-duration: 70s; }
+  .cloud1::before { width: 55px; height: 55px; top: -28px; left: 20px; }
+  .cloud1::after { width: 70px; height: 45px; top: -18px; left: 55px; }
+  .cloud2 { width: 110px; height: 38px; top: 80px; right: -130px; animation-duration: 90s; animation-delay: -25s; }
+  .cloud2::before { width: 45px; height: 45px; top: -22px; left: 15px; }
+  .cloud2::after { width: 55px; height: 35px; top: -12px; left: 45px; }
+  .cloud3 { width: 90px; height: 32px; top: 50px; right: -110px; animation-duration: 55s; animation-delay: -12s; }
+  .cloud3::before { width: 40px; height: 40px; top: -20px; left: 12px; }
+  .cloud3::after { width: 45px; height: 30px; top: -10px; left: 40px; }
+
+  @keyframes floatCloud {
+    from { transform: translateX(0); }
+    to { transform: translateX(calc(-100vw - 200px)); }
+  }
+
+  .bird {
+    position: absolute;
+    font-size: 22px;
+    animation: flyBird linear infinite;
+    z-index: -9;
+  }
+  .bird1 { top: 40px; right: -50px; animation-duration: 12s; }
+  .bird2 { top: 90px; right: -50px; animation-duration: 16s; animation-delay: -5s; }
+  .bird3 { top: 60px; right: -50px; animation-duration: 14s; animation-delay: -9s; }
+
+  @keyframes flyBird {
+    0% { transform: translateX(0) translateY(0); }
+    25% { transform: translateX(-25vw) translateY(-12px); }
+    50% { transform: translateX(-50vw) translateY(8px); }
+    75% { transform: translateX(-75vw) translateY(-8px); }
+    100% { transform: translateX(-100vw - 50px) translateY(0); }
+  }
+
+  .forest {
+    position: fixed;
+    top: 30%; left: 0;
+    width: 100%; height: 25%;
+    background: linear-gradient(to bottom, #66bb6a, #43a047, #2e7d32);
+    z-index: -8;
+    overflow: hidden;
+  }
+  .tree-deco {
+    position: absolute;
+    bottom: 0;
+    font-size: 50px;
+    opacity: 0.85;
+  }
+
+  .beach {
+    position: fixed;
+    top: 52%; left: 0;
+    width: 100%; height: 18%;
+    background: linear-gradient(to bottom, #ffe082, #ffcc02, #f9a825);
+    z-index: -7;
+  }
+  .beach-wave {
+    position: fixed;
+    top: 52%;
+    left: 0;
+    width: 100%;
+    height: 28px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 40' preserveAspectRatio='none'%3E%3Cpath d='M0,20 C100,5 200,35 300,20 C400,5 500,35 600,20 C700,5 800,35 900,20 C1000,5 1100,35 1200,20 L1200,40 L0,40 Z' fill='%23ffcc02'/%3E%3C/svg%3E") repeat-x;
+    background-size: 400px 28px;
+    z-index: -6;
+    animation: beachWaveMove 6s linear infinite;
+  }
+  @keyframes beachWaveMove {
+    from { background-position-x: 0; }
+    to { background-position-x: 400px; }
+  }
+
+  .sea {
+    position: fixed;
+    bottom: 0; left: 0;
+    width: 100%; height: 32%;
+    background: linear-gradient(to bottom, #4fc3f7, #0288d1, #01579b);
+    z-index: -5;
+    overflow: hidden;
+  }
+  .wave {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 60' preserveAspectRatio='none'%3E%3Cpath d='M0,30 C150,10 350,50 600,30 C850,10 1050,50 1200,30 L1200,60 L0,60 Z' fill='%23b3e5fc'/%3E%3C/svg%3E") repeat-x;
+    background-size: 600px 50px;
+    opacity: 0.65;
+    animation: waveUpDown 4s ease-in-out infinite;
+  }
+  .wave1 { bottom: 0; animation-duration: 4s; }
+  .wave2 { bottom: 18px; animation-duration: 5.5s; animation-delay: -1.2s; opacity: 0.45; }
+  .wave3 { bottom: 35px; animation-duration: 6.5s; animation-delay: -2.5s; opacity: 0.3; }
+
+  @keyframes waveUpDown {
+    0%, 100% { transform: translateY(18px); }
+    50% { transform: translateY(-12px); }
+  }
+
+  /* ========== صفحه شروع ========== */
+  #start-screen {
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(to bottom, #81c784 0%, #66bb6a 30%, #43a047 60%, #2e7d32 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    padding: 20px;
+    overflow: hidden;
+  }
+  #start-screen.hidden { display: none; }
+
+  .start-tree {
+    position: absolute;
+    font-size: 90px;
+    opacity: 0.7;
+    z-index: 1;
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));
+  }
+  .start-tree1 { bottom: 40px; left: -20px; font-size: 120px; }
+  .start-tree2 { bottom: 20px; right: -30px; font-size: 130px; }
+  .start-tree3 { bottom: 80px; left: 15%; font-size: 80px; opacity: 0.5; }
+  .start-tree4 { bottom: 60px; right: 18%; font-size: 85px; opacity: 0.55; }
+
+  .leaf {
+    position: absolute;
+    font-size: 22px;
+    animation: leafFall linear infinite;
+    z-index: 2;
+    opacity: 0.8;
+  }
+  .leaf1 { left: 10%; top: -30px; animation-duration: 9s; }
+  .leaf2 { left: 30%; top: -30px; animation-duration: 12s; animation-delay: -3s; }
+  .leaf3 { left: 55%; top: -30px; animation-duration: 10s; animation-delay: -6s; }
+  .leaf4 { left: 75%; top: -30px; animation-duration: 11s; animation-delay: -2s; }
+  .leaf5 { left: 90%; top: -30px; animation-duration: 8s; animation-delay: -4s; }
+
+  @keyframes leafFall {
+    0% { transform: translateY(0) rotate(0deg); opacity: 0.8; }
+    100% { transform: translateY(110vh) rotate(360deg); opacity: 0.2; }
+  }
+
+  .start-title {
+    color: #fff9c4;
+    font-size: 1.85rem;
+    font-weight: 700;
+    text-shadow: 3px 3px 0 #1b5e20, 0 0 12px rgba(0,0,0,0.4);
+    margin-bottom: 8px;
+    text-align: center;
+    z-index: 10;
+    position: relative;
+  }
+
+  /* کرم بزرگ */
+  .start-visual {
+    position: relative;
+    width: 100%;
+    max-width: 340px;
+    height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    margin: 6px 0 12px;
+  }
+
+  .big-worm-wrap {
+    position: relative;
+    animation: wormBounce 2.8s ease-in-out infinite;
+  }
+  .big-worm {
+    font-size: 170px;
+    filter: drop-shadow(0 8px 12px rgba(0,0,0,0.35)) sepia(0.55) saturate(1.5) hue-rotate(-8deg);
+    line-height: 1;
+  }
+  @keyframes wormBounce {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-12px) scale(1.03); }
+  }
+
+  .start-seed {
+    position: absolute;
+    width: 42px;
+    height: 42px;
+    background: linear-gradient(135deg, #fff59d, #ffeb3b);
+    border: 3px solid #5d4037;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 18px;
+    color: #333;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    animation: seedFloat 3s ease-in-out infinite;
+  }
+  .start-seed:nth-child(1) { top: 15px; left: 25px; animation-delay: 0s; }
+  .start-seed:nth-child(2) { top: 30px; right: 30px; animation-delay: 0.6s; }
+  .start-seed:nth-child(3) { bottom: 40px; left: 35px; animation-delay: 1.2s; }
+  .start-seed:nth-child(4) { bottom: 25px; right: 25px; animation-delay: 1.8s; }
+
+  @keyframes seedFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  /* کادرهای مضرب - کوچکتر */
+  .mode-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 10;
+    width: 100%;
+    max-width: 260px;
+  }
+
+  .mode-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 11px 16px;
+    border-radius: 14px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: white;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 5px 0 rgba(0,0,0,0.25);
+    transition: transform 0.1s;
+    font-family: 'Vazirmatn', Tahoma, sans-serif;
+  }
+  .mode-btn:active {
+    transform: translateY(3px);
+    box-shadow: 0 2px 0 rgba(0,0,0,0.25);
+  }
+
+  .mode-2 {
+    background: linear-gradient(to bottom, #ffb74d, #f57c00);
+    border: 3px solid #e65100;
+  }
+  .mode-3 {
+    background: linear-gradient(to bottom, #64b5f6, #1976d2);
+    border: 3px solid #0d47a1;
+  }
+  .mode-5 {
+    background: linear-gradient(to bottom, #ba68c8, #7b1fa2);
+    border: 3px solid #4a148c;
+  }
+
+  .mode-icon {
+    font-size: 1.4rem;
+  }
+
+  .designer {
+    position: absolute;
+    bottom: 14px;
+    color: #fff;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-shadow: 1px 1px 3px #000;
+    z-index: 10;
+  }
+
+  /* ========== بازی ========== */
+  #game-area {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    z-index: 10;
+  }
+  #game-area.show { display: flex; }
+  h1 {
+    color: white;
+    font-size: 1.25rem;
+    margin: 6px 0;
+    text-shadow: 2px 2px 4px #000;
+  }
+  #info {
+    color: white;
+    background: rgba(0,0,0,0.55);
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 0.95rem;
+    margin-bottom: 6px;
+  }
+  #high-score-box {
+    color: #fff9c4;
+    background: rgba(0,0,0,0.6);
+    border: 2px solid #ffeb3b;
+    padding: 5px 16px;
+    border-radius: 20px;
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+  #game-container {
+    position: relative;
+    border: 14px solid #5d4037;
+    border-radius: 16px;
+    box-shadow: 0 0 0 6px #3e2723, 0 0 25px rgba(0,0,0,0.7);
+    max-width: 100%;
+    background: #3e2723;
+  }
+  canvas {
+    display: block;
+    background: #558b2f;
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+  }
+  #controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 12px;
+    gap: 8px;
+    width: 100%;
+    max-width: 320px;
+    direction: ltr;
+  }
+  .row { display: flex; gap: 18px; justify-content: center; }
+  .btn {
+    width: 78px;
+    height: 78px;
+    background: #ff9800;
+    color: white;
+    border: 5px solid #e65100;
+    border-radius: 20px;
+    box-shadow: 0 6px 0 #bf360c;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+  }
+  .btn:active {
+    transform: translateY(5px);
+    box-shadow: 0 1px 0 #bf360c;
+  }
+  .triangle {
+    width: 0;
+    height: 0;
+    border-style: solid;
+  }
+  .triangle-up {
+    border-width: 0 16px 26px 16px;
+    border-color: transparent transparent #fff transparent;
+  }
+  .triangle-down {
+    border-width: 26px 16px 0 16px;
+    border-color: #fff transparent transparent transparent;
+  }
+  .triangle-left {
+    border-width: 16px 26px 16px 0;
+    border-color: transparent #fff transparent transparent;
+  }
+  .triangle-right {
+    border-width: 16px 0 16px 26px;
+    border-color: transparent transparent transparent #fff;
+  }
+
+  #message {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0,0,0,0.9);
+    color: white;
+    padding: 20px;
+    border-radius: 16px;
+    text-align: center;
+    font-size: 1.15rem;
+    display: none;
+    z-index: 30;
+    width: 85%;
+    max-width: 280px;
+  }
+  #message button {
+    margin-top: 12px;
+    padding: 12px 28px;
+    font-size: 1.1rem;
+    background: #43a047;
+    color: white;
+    border: none;
+    border-radius: 12px;
+  }
+  #encourage {
+    margin-top: 14px;
+    min-height: 38px;
+    color: #fff9c4;
+    font-size: 1.15rem;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 1px 1px 3px #000;
+    padding: 6px 12px;
+  }
+
+  #timer {
+    position: fixed;
+    bottom: 12px;
+    left: 14px;
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-shadow: 1px 1px 3px #000;
+    z-index: 50;
+    pointer-events: none;
+    display: none;
+  }
+</style>
+</head>
+<body>
+
+<div class="sky">
+  <div class="cloud cloud1"></div>
+  <div class="cloud cloud2"></div>
+  <div class="cloud cloud3"></div>
+  <div class="bird bird1">🕊️</div>
+  <div class="bird bird2">🕊️</div>
+  <div class="bird bird3">🕊️</div>
+</div>
+<div class="forest">
+  <div class="tree-deco" style="left:5%">🌳</div>
+  <div class="tree-deco" style="left:15%; font-size:60px">🌲</div>
+  <div class="tree-deco" style="left:28%">🌳</div>
+  <div class="tree-deco" style="left:40%; font-size:55px">🌲</div>
+  <div class="tree-deco" style="left:55%">🌳</div>
+  <div class="tree-deco" style="left:68%; font-size:62px">🌲</div>
+  <div class="tree-deco" style="left:80%">🌳</div>
+  <div class="tree-deco" style="left:90%; font-size:50px">🌲</div>
+</div>
+<div class="beach"></div>
+<div class="beach-wave"></div>
+<div class="sea">
+  <div class="wave wave1"></div>
+  <div class="wave wave2"></div>
+  <div class="wave wave3"></div>
+</div>
+
+<!-- صفحه شروع -->
+<div id="start-screen">
+  <div class="start-tree start-tree1">🌳</div>
+  <div class="start-tree start-tree2">🌲</div>
+  <div class="start-tree start-tree3">🌳</div>
+  <div class="start-tree start-tree4">🌲</div>
+
+  <div class="leaf leaf1">🍃</div>
+  <div class="leaf leaf2">🍂</div>
+  <div class="leaf leaf3">🍃</div>
+  <div class="leaf leaf4">🍂</div>
+  <div class="leaf leaf5">🍃</div>
+
+  <div class="start-title">مضرب‌های اعداد</div>
+
+  <!-- کرم بزرگ -->
+  <div class="start-visual">
+    <div class="start-seed">۲</div>
+    <div class="start-seed">۳</div>
+    <div class="start-seed">۵</div>
+    <div class="start-seed">۶</div>
+
+    <div class="big-worm-wrap">
+      <div class="big-worm">🐛</div>
+    </div>
+  </div>
+
+  <!-- کادرهای مضرب (کوچکتر) -->
+  <div class="mode-buttons">
+    <button class="mode-btn mode-2" onclick="selectMode(2)">
+      <span class="mode-icon">🟠</span>
+      مضرب‌های ۲
+    </button>
+    <button class="mode-btn mode-3" onclick="selectMode(3)">
+      <span class="mode-icon">🔵</span>
+      مضرب‌های ۳
+    </button>
+    <button class="mode-btn mode-5" onclick="selectMode(5)">
+      <span class="mode-icon">🟣</span>
+      مضرب‌های ۵
+    </button>
+  </div>
+
+  <div class="designer">طراح: احمد نجفی</div>
+</div>
+
+<!-- بخش بازی -->
+<div id="game-area">
+  <h1 id="game-title">🐛 کرم و مضرب‌ها</h1>
+  <div id="info">امتیاز: <span id="score">۰</span> | طول: <span id="length">۳</span></div>
+  <div id="high-score-box">بالاترین امتیاز: <span id="high-score">۰</span></div>
+
+  <div id="game-container">
+    <canvas id="game" width="360" height="360"></canvas>
+    <div id="message">
+      <div id="msg-text"></div>
+      <button onclick="backToMenu()">بازگشت به منو</button>
+    </div>
+  </div>
+
+  <div id="controls">
+    <div class="row">
+      <button class="btn" id="btnUp"><div class="triangle triangle-up"></div></button>
+    </div>
+    <div class="row">
+      <button class="btn" id="btnLeft"><div class="triangle triangle-left"></div></button>
+      <button class="btn" id="btnDown"><div class="triangle triangle-down"></div></button>
+      <button class="btn" id="btnRight"><div class="triangle triangle-right"></div></button>
+    </div>
+  </div>
+  <div id="encourage"></div>
+</div>
+
+<div id="timer">۰ ثانیه</div>
+
+<script>
+const canvas = document.getElementById('game');
+const ctx = canvas.getContext('2d');
+const grid = 20;
+const cols = canvas.width / grid;
+const rows = canvas.height / grid;
+
+const encourageMessages = [
+  "آفرین! داری عالی پیش می‌ری 🌟",
+  "خیلی خوبه! ادامه بده 💪",
+  "عالیه! داری یاد می‌گیری 👏",
+  "آفرین به تو قهرمان! 🎉",
+  "داری عالی کار می‌کنی! 🏆",
+  "وای چه باهوشی! 🧠",
+  "ادامه بده، داری بهتر می‌شی ✨",
+  "آفرین! اینطوری پیش بری برنده‌ای 🥇"
+];
+
+const wormColors = {
+  2: {
+    headLight: '#ffcc80',
+    headDark: '#ef6c00',
+    body1: '#ff9800',
+    body2: '#e65100',
+    stroke: '#bf360c',
+    smile: '#e65100'
+  },
+  3: {
+    headLight: '#90caf9',
+    headDark: '#1565c0',
+    body1: '#42a5f5',
+    body2: '#0d47a1',
+    stroke: '#0d47a1',
+    smile: '#1565c0'
+  },
+  5: {
+    headLight: '#e1bee7',
+    headDark: '#7b1fa2',
+    body1: '#ab47bc',
+    body2: '#4a148c',
+    stroke: '#4a148c',
+    smile: '#6a1b9a'
+  }
+};
+
+function toPersian(num) {
+  const p = ['۰','۱','۲','۳','۴','۵','۶','۷','۸','۹'];
+  return String(num).replace(/\d/g, d => p[d]);
+}
+
+let audioCtx = null;
+
+function initAudio() {
+  if (!audioCtx) {
+    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  }
+  if (audioCtx.state === 'suspended') {
+    audioCtx.resume();
+  }
+}
+
+function playTone(freq, duration, type = 'sine', volume = 0.3) {
+  if (!audioCtx) return;
+  const osc = audioCtx.createOscillator();
+  const gain = audioCtx.createGain();
+  osc.connect(gain);
+  gain.connect(audioCtx.destination);
+  osc.type = type;
+  osc.frequency.value = freq;
+  gain.gain.setValueAtTime(volume, audioCtx.currentTime);
+  gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
+  osc.start(audioCtx.currentTime);
+  osc.stop(audioCtx.currentTime + duration);
+}
+
+function soundCorrect() {
+  playTone(523, 0.12, 'sine', 0.25);
+  setTimeout(() => playTone(659, 0.15, 'sine', 0.25), 100);
+}
+
+function soundWrong() {
+  playTone(200, 0.25, 'sawtooth', 0.2);
+}
+
+function soundGameOver() {
+  playTone(400, 0.15, 'triangle', 0.25);
+  setTimeout(() => playTone(300, 0.15, 'triangle', 0.25), 150);
+  setTimeout(() => playTone(200, 0.3, 'triangle', 0.25), 300);
+}
+
+function soundStart() {
+  playTone(392, 0.1, 'sine', 0.2);
+  setTimeout(() => playTone(523, 0.12, 'sine', 0.22), 120);
+  setTimeout(() => playTone(659, 0.18, 'sine', 0.25), 250);
+}
+
+function soundEncourage() {
+  playTone(523, 0.1, 'sine', 0.2);
+  setTimeout(() => playTone(659, 0.1, 'sine', 0.2), 100);
+  setTimeout(() => playTone(784, 0.15, 'sine', 0.25), 200);
+}
+
+let snake, dir, nextDir, foods, score, loop, timers, over;
+let eatenCount = 0;
+let highScore = 0;
+let gameStartTime = 0;
+let timerInterval = null;
+let currentMultiplier = 3;
+
+try {
+  highScore = parseInt(localStorage.getItem('wormHighScore')) || 0;
+} catch(e) {
+  highScore = 0;
+}
+
+function updateHighScoreDisplay() {
+  document.getElementById('high-score').textContent = toPersian(highScore);
+}
+
+function updateTimer() {
+  if (over || !gameStartTime) return;
+  const seconds = Math.floor((Date.now() - gameStartTime) / 1000);
+  document.getElementById('timer').textContent = toPersian(seconds) + ' ثانیه';
+}
+
+function selectMode(multiplier) {
+  currentMultiplier = multiplier;
+  initAudio();
+  soundStart();
+  
+  document.getElementById('game-title').textContent = `🐛 کرم و مضرب‌های ${toPersian(multiplier)}`;
+  
+  document.getElementById('start-screen').classList.add('hidden');
+  document.getElementById('game-area').classList.add('show');
+  document.getElementById('timer').style.display = 'block';
+  updateHighScoreDisplay();
+  
+  setTimeout(function() {
+    startGame();
+  }, 80);
+}
+
+function backToMenu() {
+  over = true;
+  if (loop) clearInterval(loop);
+  clearTimers();
+  if (timerInterval) clearInterval(timerInterval);
+  
+  document.getElementById('game-area').classList.remove('show');
+  document.getElementById('start-screen').classList.remove('hidden');
+  document.getElementById('timer').style.display = 'none';
+  document.getElementById('message').style.display = 'none';
+}
+
+function startGame() {
+  document.getElementById('message').style.display = 'none';
+  document.getElementById('encourage').textContent = '';
+  
+  snake = [
+    {x: 6, y: 9},
+    {x: 5, y: 9},
+    {x: 4, y: 9}
+  ];
+  dir = {x: 1, y: 0};
+  nextDir = {x: 1, y: 0};
+  foods = [];
+  timers = [];
+  score = 0;
+  eatenCount = 0;
+  over = false;
+  gameStartTime = Date.now();
+  
+  updateInfo();
+  clearTimers();
+  spawnFour();
+  
+  if (loop) clearInterval(loop);
+  loop = setInterval(tick, 210);
+
+  if (timerInterval) clearInterval(timerInterval);
+  timerInterval = setInterval(updateTimer, 1000);
+  updateTimer();
+  
+  draw();
+}
+
+function updateInfo() {
+  document.getElementById('score').textContent = toPersian(score);
+  document.getElementById('length').textContent = toPersian(snake.length);
+}
+
+function showEncourage() {
+  const msg = encourageMessages[Math.floor(Math.random() * encourageMessages.length)];
+  document.getElementById('encourage').textContent = msg;
+  soundEncourage();
+}
+
+function setDir(dx, dy) {
+  if (dx === -dir.x && dy === -dir.y) return;
+  nextDir = {x: dx, y: dy};
+}
+
+document.getElementById('btnUp').addEventListener('touchstart', e => { e.preventDefault(); setDir(0,-1); });
+document.getElementById('btnDown').addEventListener('touchstart', e => { e.preventDefault(); setDir(0,1); });
+document.getElementById('btnLeft').addEventListener('touchstart', e => { e.preventDefault(); setDir(-1,0); });
+document.getElementById('btnRight').addEventListener('touchstart', e => { e.preventDefault(); setDir(1,0); });
+
+document.getElementById('btnUp').addEventListener('mousedown', () => setDir(0,-1));
+document.getElementById('btnDown').addEventListener('mousedown', () => setDir(0,1));
+document.getElementById('btnLeft').addEventListener('mousedown', () => setDir(-1,0));
+document.getElementById('btnRight').addEventListener('mousedown', () => setDir(1,0));
+
+function clearTimers() {
+  if (timers && timers.length) {
+    timers.forEach(t => clearTimeout(t));
+  }
+  timers = [];
+}
+
+function randomNum() {
+  const elapsed = (Date.now() - gameStartTime) / 1000;
+  const allowThreeDigit = elapsed >= 60;
+  const isMultiple = Math.random() < 0.55;
+  const m = currentMultiplier;
+
+  if (allowThreeDigit && Math.random() < 0.35) {
+    if (isMultiple) {
+      const base = Math.floor(Math.random() * 60) + 20;
+      return base * m;
+    } else {
+      let n;
+      do {
+        n = Math.floor(Math.random() * 200) + 100;
+      } while (n % m === 0);
+      return n;
+    }
+  } else {
+    if (isMultiple) {
+      return (Math.floor(Math.random() * 12) + 1) * m;
+    } else {
+      let n;
+      do {
+        n = Math.floor(Math.random() * 40) + 1;
+      } while (n % m === 0);
+      return n;
+    }
+  }
+}
+
+function isNearTree(x, y) {
+  const treeZones = [
+    {x: 0, y: 0, r: 2}, {x: 1, y: 0, r: 2}, {x: 0, y: 1, r: 2},
+    {x: 17, y: 0, r: 2}, {x: 16, y: 0, r: 2}, {x: 17, y: 1, r: 2},
+    {x: 0, y: 17, r: 2}, {x: 1, y: 17, r: 2}, {x: 0, y: 16, r: 2},
+    {x: 17, y: 17, r: 2}, {x: 16, y: 17, r: 2}, {x: 17, y: 16, r: 2},
+    {x: 8, y: 0, r: 2}, {x: 9, y: 0, r: 2},
+    {x: 8, y: 17, r: 2}, {x: 9, y: 17, r: 2},
+    {x: 0, y: 8, r: 2}, {x: 0, y: 9, r: 2},
+    {x: 17, y: 8, r: 2}, {x: 17, y: 9, r: 2}
+  ];
+  return treeZones.some(t => Math.abs(t.x - x) <= t.r && Math.abs(t.y - y) <= t.r);
+}
+
+function occupied(x, y) {
+  return snake.some(s => s.x === x && s.y === y) || 
+         foods.some(f => f.x === x && f.y === y) ||
+         isNearTree(x, y);
+}
+
+function spawnOne() {
+  for (let i = 0; i < 100; i++) {
+    const x = Math.floor(Math.random() * cols);
+    const y = Math.floor(Math.random() * rows);
+    if (!occupied(x, y)) {
+      const id = Date.now() + Math.random();
+      foods.push({x, y, num: randomNum(), id});
+      const t = setTimeout(() => {
+        foods = foods.filter(f => f.id !== id);
+        if (foods.length < 4 && !over) spawnOne();
+      }, 10000);
+      timers.push(t);
+      return;
+    }
+  }
+}
+
+function spawnFour() {
+  foods = [];
+  clearTimers();
+  for (let i = 0; i < 4; i++) spawnOne();
+}
+
+function tick() {
+  if (over) return;
+  dir = nextDir;
+  const head = {x: snake[0].x + dir.x, y: snake[0].y + dir.y};
+
+  if (head.x < 0 || head.x >= cols || head.y < 0 || head.y >= rows) {
+    end('به دیوار درختی خوردی! 🌳');
+    return;
+  }
+  if (snake.some(s => s.x === head.x && s.y === head.y)) {
+    end('به بدن خودت خوردی! 😱');
+    return;
+  }
+
+  snake.unshift(head);
+
+  const idx = foods.findIndex(f => f.x === head.x && f.y === head.y);
+  if (idx !== -1) {
+    const food = foods[idx];
+    foods.splice(idx, 1);
+
+    eatenCount++;
+    if (eatenCount % 5 === 0) showEncourage();
+
+    if (food.num % currentMultiplier === 0) {
+      score += 10;
+      soundCorrect();
+    } else {
+      score = Math.max(0, score - 5);
+      if (snake.length > 3) snake.pop();
+      if (snake.length > 3) snake.pop();
+      soundWrong();
+    }
+    updateInfo();
+    if (foods.length < 4) spawnOne();
+  } else {
+    snake.pop();
+  }
+  draw();
+}
+
+function end(msg) {
+  over = true;
+  clearInterval(loop);
+  clearTimers();
+  if (timerInterval) clearInterval(timerInterval);
+  soundGameOver();
+
+  if (score > highScore) {
+    highScore = score;
+    try {
+      localStorage.setItem('wormHighScore', highScore);
+    } catch(e) {}
+    updateHighScoreDisplay();
+  }
+
+  document.getElementById('msg-text').innerHTML = `<b>بازی تموم شد!</b><br>${msg}<br><br>امتیاز: ${toPersian(score)}`;
+  document.getElementById('message').style.display = 'block';
+}
+
+function drawGrass() {
+  const grd = ctx.createLinearGradient(0, 0, 0, canvas.height);
+  grd.addColorStop(0, '#7cb342');
+  grd.addColorStop(0.5, '#689f38');
+  grd.addColorStop(1, '#558b2f');
+  ctx.fillStyle = grd;
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  for (let i = 0; i < 900; i++) {
+    const x = Math.random() * canvas.width;
+    const y = Math.random() * canvas.height;
+    const shade = Math.random();
+    ctx.fillStyle = shade < 0.4 ? 'rgba(104, 159, 56, 0.45)' : 
+                    shade < 0.7 ? 'rgba(174, 213, 129, 0.35)' : 'rgba(51, 105, 30, 0.3)';
+    ctx.fillRect(x, y, 2 + Math.random()*2, 1 + Math.random()*2);
+  }
+}
+
+function drawFence() {
+  const fenceWidth = 10;
+  ctx.fillStyle = '#6d4c41';
+  ctx.fillRect(0, 0, canvas.width, fenceWidth);
+  ctx.fillRect(0, canvas.height - fenceWidth, canvas.width, fenceWidth);
+  ctx.fillRect(0, 0, fenceWidth, canvas.height);
+  ctx.fillRect(canvas.width - fenceWidth, 0, fenceWidth, canvas.height);
+
+  ctx.strokeStyle = '#4e342e';
+  ctx.lineWidth = 1.5;
+  for (let i = 0; i < canvas.width; i += 18) {
+    ctx.beginPath(); ctx.moveTo(i, 2); ctx.lineTo(i + 12, fenceWidth - 2); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(i, canvas.height - 2); ctx.lineTo(i + 12, canvas.height - fenceWidth + 2); ctx.stroke();
+  }
+  for (let i = 0; i < canvas.height; i += 18) {
+    ctx.beginPath(); ctx.moveTo(2, i); ctx.lineTo(fenceWidth - 2, i + 12); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(canvas.width - 2, i); ctx.lineTo(canvas.width - fenceWidth + 2, i + 12); ctx.stroke();
+  }
+}
+
+function drawTree(x, y, scale = 1) {
+  ctx.save();
+  ctx.translate(x, y);
+  ctx.scale(scale, scale);
+  ctx.fillStyle = 'rgba(0,0,0,0.2)';
+  ctx.beginPath(); ctx.ellipse(0, 16, 20, 7, 0, 0, Math.PI*2); ctx.fill();
+  ctx.fillStyle = '#5d4037'; ctx.fillRect(-5, 0, 10, 20);
+  ctx.fillStyle = '#4e342e'; ctx.fillRect(-3, 2, 3, 16);
+  ctx.fillStyle = '#2e7d32';
+  ctx.beginPath();
+  ctx.arc(0, -8, 18, 0, Math.PI*2);
+  ctx.arc(-13, -2, 13, 0, Math.PI*2);
+  ctx.arc(13, -2, 13, 0, Math.PI*2);
+  ctx.arc(0, -20, 14, 0, Math.PI*2);
+  ctx.fill();
+  ctx.fillStyle = '#388e3c';
+  ctx.beginPath();
+  ctx.arc(-5, -11, 12, 0, Math.PI*2);
+  ctx.arc(6, -9, 11, 0, Math.PI*2);
+  ctx.arc(0, -19, 10, 0, Math.PI*2);
+  ctx.fill();
+  ctx.fillStyle = '#66bb6a';
+  ctx.beginPath();
+  ctx.arc(-3, -14, 7, 0, Math.PI*2);
+  ctx.arc(4, -13, 6, 0, Math.PI*2);
+  ctx.arc(0, -22, 6, 0, Math.PI*2);
+  ctx.fill();
+  ctx.fillStyle = '#e53935';
+  ctx.beginPath();
+  ctx.arc(-7, -5, 2.3, 0, Math.PI*2);
+  ctx.arc(8, -7, 2, 0, Math.PI*2);
+  ctx.arc(1, -17, 1.8, 0, Math.PI*2);
+  ctx.fill();
+  ctx.restore();
+}
+
+function draw() {
+  if (!ctx) return;
+  
+  drawGrass();
+  drawFence();
+
+  foods.forEach(f => {
+    const cx = f.x * grid + grid/2;
+    const cy = f.y * grid + grid/2;
+    const isThreeDigit = f.num >= 100;
+
+    const radius = grid/2 + 1;
+    const fontSize = isThreeDigit ? 11 : 15;
+
+    ctx.fillStyle = 'rgba(0,0,0,0.2)';
+    ctx.beginPath();
+    ctx.ellipse(cx + 1, cy + 3, radius, radius * 0.65, 0, 0, Math.PI*2);
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.arc(cx, cy, radius, 0, Math.PI*2);
+    const seedGrad = ctx.createRadialGradient(cx-3, cy-3, 2, cx, cy, radius);
+    seedGrad.addColorStop(0, '#fff59d');
+    seedGrad.addColorStop(0.7, '#ffeb3b');
+    seedGrad.addColorStop(1, '#fbc02d');
+    ctx.fillStyle = seedGrad;
+    ctx.fill();
+    
+    ctx.strokeStyle = '#5d4037';
+    ctx.lineWidth = 2.5;
+    ctx.stroke();
+
+    ctx.fillStyle = '#212121';
+    ctx.font = `bold ${fontSize}px Vazirmatn, Tahoma`;
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(toPersian(f.num), cx, cy + 1);
+  });
+
+  const colors = wormColors[currentMultiplier];
+
+  snake.forEach((s, i) => {
+    const cx = s.x * grid + grid/2;
+    const cy = s.y * grid + grid/2;
+
+    if (i === 0) {
+      ctx.save();
+      ctx.translate(cx, cy);
+      let angle = 0;
+      if (dir.x === 1) angle = 0;
+      else if (dir.x === -1) angle = Math.PI;
+      else if (dir.y === 1) angle = Math.PI / 2;
+      else if (dir.y === -1) angle = -Math.PI / 2;
+      ctx.rotate(angle);
+
+      ctx.beginPath();
+      ctx.ellipse(1, 0, 10.5, 9, 0, 0, Math.PI * 2);
+      const headGrad = ctx.createRadialGradient(-2, -2, 1, 1, 0, 11);
+      headGrad.addColorStop(0, colors.headLight);
+      headGrad.addColorStop(1, colors.headDark);
+      ctx.fillStyle = headGrad;
+      ctx.fill();
+      ctx.strokeStyle = colors.stroke;
+      ctx.lineWidth = 2;
+      ctx.stroke();
+
+      ctx.fillStyle = '#fff';
+      ctx.beginPath();
+      ctx.arc(3, -3.2, 3.3, 0, Math.PI * 2);
+      ctx.arc(3, 3.2, 3.3, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.fillStyle = '#222';
+      ctx.beginPath();
+      ctx.arc(3.8, -3.2, 1.7, 0, Math.PI * 2);
+      ctx.arc(3.8, 3.2, 1.7, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.fillStyle = '#fff';
+      ctx.beginPath();
+      ctx.arc(3.2, -3.8, 0.7, 0, Math.PI * 2);
+      ctx.arc(3.2, 2.6, 0.7, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.strokeStyle = colors.smile;
+      ctx.lineWidth = 1.5;
+      ctx.lineCap = 'round';
+      ctx.beginPath();
+      ctx.arc(5, 1, 3.5, 0.15 * Math.PI, 0.85 * Math.PI);
+      ctx.stroke();
+
+      ctx.restore();
+
+    } else if (i === snake.length - 1) {
+      ctx.save();
+      ctx.translate(cx, cy);
+      let tailAngle = 0;
+      if (snake.length > 1) {
+        const prev = snake[snake.length - 2];
+        const dx = s.x - prev.x;
+        const dy = s.y - prev.y;
+        if (dx === 1) tailAngle = 0;
+        else if (dx === -1) tailAngle = Math.PI;
+        else if (dy === 1) tailAngle = Math.PI / 2;
+        else if (dy === -1) tailAngle = -Math.PI / 2;
+      }
+      ctx.rotate(tailAngle);
+
+      ctx.beginPath();
+      ctx.ellipse(2, 0, 9, 6.5, 0, 0, Math.PI * 2);
+      ctx.fillStyle = colors.body2;
+      ctx.fill();
+      ctx.strokeStyle = colors.stroke;
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
+
+      ctx.restore();
+
+    } else {
+      ctx.beginPath();
+      ctx.arc(cx, cy, grid/2 - 2.5, 0, Math.PI * 2);
+      ctx.fillStyle = (i % 2 === 0) ? colors.body1 : colors.body2;
+      ctx.fill();
+      ctx.strokeStyle = colors.stroke;
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
+    }
+  });
+
+  drawTree(22, 24, 0.72);
+  drawTree(338, 24, 0.72);
+  drawTree(22, 336, 0.75);
+  drawTree(338, 336, 0.75);
+  drawTree(180, 16, 0.52);
+  drawTree(180, 344, 0.55);
+  drawTree(16, 180, 0.52);
+  drawTree(344, 180, 0.55);
+}
+
+document.getElementById('timer').style.display = 'none';
+updateHighScoreDisplay();
+</script>
+</body>
+</html>
